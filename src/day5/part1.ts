@@ -12,7 +12,7 @@ export default function day5_part1(input: string) {
   const res = seeds.map(seed => {
     return maps.reduce((prev, map) => {
       const tmp = map.find(item => {
-        return prev > item[1] && ((prev - item[1]) <= item[2])
+        return prev >= item[1] && ((prev - item[1]) < item[2])
       })
       const dest = tmp === undefined ? prev : tmp[0] + (prev - tmp[1]);
       return dest;
